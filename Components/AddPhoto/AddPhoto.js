@@ -14,7 +14,7 @@ const AddPhoto = () => {
   const styles = StyleSheet.create({
     image_container: {
       position: "absolute",
-      top: -100,
+      top: -70,
       left: width_rec / 2 - 60,
       borderRadius: 16,
     },

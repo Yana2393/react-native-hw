@@ -1,8 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const RegisterButton = () => {
+const RegisterButton = ({ name, email, password }) => {
+    const onRegister = () => {
+    Alert.alert("Credentials", `${name} + ${email} + ${password}`);
+  };
   return (
-    <TouchableOpacity style={styles.AuthButton}>
+    <TouchableOpacity style={styles.AuthButton} onPress={onRegister}>
       <Text
         style={{
           color: "white",

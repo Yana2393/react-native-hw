@@ -1,8 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const AuthButton = () => {
+const AuthButton = ({email, password}) => {
+  const onLogin = () => {
+    Alert.alert("Credentials", `${email} + ${password}`);
+  };
   return (
-    <TouchableOpacity style={styles.AuthButton}>
+    <TouchableOpacity style={styles.AuthButton} onPress={onLogin}>
       <Text
         style={{
           color: "white",
