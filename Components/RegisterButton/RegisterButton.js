@@ -1,11 +1,13 @@
 import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const RegisterButton = ({ name, email, password }) => {
-    const onRegister = () => {
-    Alert.alert("Credentials", `${name} + ${email} + ${password}`);
-  };
+    const navigation = useNavigation();
+//     const onRegister = () => {
+//     Alert.alert("Credentials", `${name} + ${email} + ${password}`);
+//   };
   return (
-    <TouchableOpacity style={styles.AuthButton} onPress={onRegister}>
+    <TouchableOpacity style={styles.AuthButton} onPress={() => navigation.navigate("Home")}>
       <Text
         style={{
           color: "white",
