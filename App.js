@@ -39,6 +39,10 @@ export default function App() {
         <MainStack.Screen name="PostsScreen" component={PostsScreen} options={{
           headerTransparent: true,
           headerTitle: " "
+        }} />
+        <MainStack.Screen name="Comments" component={CommentsScreen} options={{
+          headerTransparent: true,
+          headerTitle: " "
         }}/>
       </MainStack.Navigator>
     </NavigationContainer>

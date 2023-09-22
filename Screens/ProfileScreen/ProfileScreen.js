@@ -4,11 +4,10 @@ import {
   Text,
   ScrollView,
   View,
-  TouchableWithoutFeedback,
-  Keyboard,
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 import bgPhoto from "../../assets/bgPhoto.jpg";
 import AddPhoto from "../../Components/AddPhoto/AddPhoto";
@@ -51,15 +50,42 @@ const POSTS = [
   },
 ];
 
+function PostsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+function Profile() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Profile!</Text>
+    </View>
+  );
+}
+
+function CreatePosts() {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Text>Profile!</Text>
+    </View>
+  );
+}
+
 const ProfileScreen = () => {
   const navigation = useNavigation();
   const [posts, setPosts] = useState(POSTS);
+  const Tabs = createBottomTabNavigator();
 
   return (
     <ImageBackground style={styles.bgPhoto} resizeMode="cover" source={bgPhoto}>
       <View style={styles.container}>
         <AddPhoto></AddPhoto>
-        <LogoutBtn style={{ position: "absolute", right: 16, top: 22}}></LogoutBtn>
+        <LogoutBtn
+          style={{ position: "absolute", right: 16, top: 22 }}
+        ></LogoutBtn>
         <Text style={styles.title}>Natali Romanova</Text>
         <ScrollView style={{ flex: 1 }}>
           <SafeAreaView style={styles.listContainer}>
@@ -73,11 +99,14 @@ const ProfileScreen = () => {
                 <Text style={styles.titleTxt}>{post.title}</Text>
                 <View style={styles.dataWrapp}>
                   <View style={styles.likeWrapp}>
-                    <ComentsSvg
-                      fill={"#FF6C00"}
-                      stroke={"#FF6C00"}
-                      marginRight={8}
-                    ></ComentsSvg>
+                    <TouchableOpacity>
+                      <ComentsSvg
+                        fill={"#FF6C00"}
+                        stroke={"#FF6C00"}
+                        marginRight={8}
+                        onPress={() => navigation.navigate("Comments")}
+                      ></ComentsSvg>
+                    </TouchableOpacity>
                     <Text style={styles.txt}>{post.comments}</Text>
                     <LikeSvg marginRight={8}></LikeSvg>
                     <Text style={styles.txt}>{post.likes}</Text>
@@ -92,16 +121,7 @@ const ProfileScreen = () => {
           </SafeAreaView>
         </ScrollView>
       </View>
-      <View style={styles.footer}>
-        <PostSvg onPress={() => navigation.navigate("PostsScreen")}></PostSvg>
-        <TouchableOpacity style={styles.button}>
-          <UserSvg
-            stroke={"white"}
-            onPress={() => navigation.navigate("Profile")}
-          ></UserSvg>
-        </TouchableOpacity>
-        <AddSvg fill={"#212121CC"} onPress={() => navigation.navigate("CreatePosts")}></AddSvg>
-      </View>
+     
     </ImageBackground>
   );
 };
@@ -109,14 +129,14 @@ const styles = StyleSheet.create({
   bgPhoto: {
     flex: 1,
     justifyContent: "flex-end",
-    height: "100%",
+    height: "auto",
   },
   container: {
     justifyContent: "flex-start",
     alignItems: "stretch",
     padding: 16,
     paddingTop: 32,
-    paddingBottom: 70,
+    paddingBottom: 0,
     backgroundColor: "#FFFFFF",
     minHeight: "83%",
     borderTopLeftRadius: 25,

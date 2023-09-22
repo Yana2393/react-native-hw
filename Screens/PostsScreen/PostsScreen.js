@@ -17,23 +17,12 @@ const PostsScreen = () => {
 
   return (
     <View style={styles.wrapp}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Публікації</Text>
-        <LogoutBtn style={{ marginRight: 16, marginTop: 8 }}></LogoutBtn>
-      </View>
       <View style={styles.userCard}>
         <UserPhoto fill_color="#FF6C00" width={37}></UserPhoto>
         <View style={styles.userData}>
           <Text style={styles.userName}>Natali Romanova</Text>
           <Text style={styles.userEmail}>email@example.com</Text>
         </View>
-      </View>
-      <View style={styles.footer}>
-        <PostSvg onPress={() => navigation.navigate("PostsScreen")}></PostSvg>
-        <TouchableOpacity style={styles.button}>
-          <AddSvg fill={"white"} onPress={() => navigation.navigate("CreatePosts")}></AddSvg>
-        </TouchableOpacity>
-        <UserSvg onPress={() => navigation.navigate("Profile")}></UserSvg>
       </View>
     </View>
   );

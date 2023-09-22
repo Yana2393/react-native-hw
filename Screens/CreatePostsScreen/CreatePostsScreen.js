@@ -6,7 +6,6 @@ import {
   ImageBackground,
   TextInput,
 } from "react-native";
-import AddSvg from "../../Components/AddSvg/AddSvg";
 import DeliteSvg from "../../Components/DeliteSvg/DeliteSvg";
 import MapPinSvg from "../../Components/MapPinSvg/MapPinSvg";
 import { useNavigation } from "@react-navigation/native";

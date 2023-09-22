@@ -1,11 +1,13 @@
 import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const AuthButton = ({email, password}) => {
-  const onLogin = () => {
-    Alert.alert("Credentials", `${email} + ${password}`);
-  };
+const AuthButton = ({ email, password }) => {
+  const navigation = useNavigation();
+  // const onLogin = () => {
+  //   Alert.alert("Credentials", `${email} + ${password}`);
+  // };
   return (
-    <TouchableOpacity style={styles.AuthButton} onPress={onLogin}>
+    <TouchableOpacity style={styles.AuthButton} onPress={() => navigation.navigate("Home")}>
       <Text
         style={{
           color: "white",
